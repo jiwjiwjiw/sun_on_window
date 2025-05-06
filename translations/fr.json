@@ -1,0 +1,88 @@
+{
+  "config": {
+    "step": {
+      "horizon": {
+        "title": "Configuration du profil d'horizon",
+        "description": "Définissez le profil d'horizon global au format JSON où les clés sont les azimuts (0-360°) et les valeurs sont les élévations (-90° à 90°). Exemple: {\"0\": 5, \"90\": 3, \"180\": 10, \"270\": 7}. Ajoutez au moins 2 points, puis cliquez sur valider pour passer à l'étape suivante.",
+        "data": {
+          "horizon_profile_json": "Profil d'horizon (JSON)"
+        }
+      },
+      "window": {
+        "title": "Configuration des fenêtres",
+        "description": "Définissez les fenêtres à surveiller en spécifiant leur nom, la plage d'azimut et l'élévation maximale. Ajoutez au moins une fenêtre, puis cochez la case pour passer à l'étape suivante.",
+        "data": {
+          "name": "Nom de la fenêtre",
+          "start_azimuth": "Azimut de début (degrés)",
+          "end_azimuth": "Azimut de fin (degrés)",
+          "max_elevation": "Élévation maximale (degrés)",
+          "next_step": "J'ai terminé de définir les fenêtres"
+        }
+      }
+    },
+    "error": {
+      "minimum_horizon_points": "Vous devez définir au moins 2 points pour le profil d'horizon",
+      "no_windows": "Vous devez définir au moins une fenêtre",
+      "invalid_json": "Format JSON invalide",
+      "invalid_json_format": "Le format JSON doit être un objet (dictionnaire)",
+      "invalid_azimuth_range": "Les azimuts doivent être entre 0 et 360 degrés",
+      "invalid_elevation_range": "Les élévations doivent être entre -90 et 90 degrés",
+      "invalid_number_format": "Les azimuts et élévations doivent être des nombres"
+    },
+    "abort": {
+      "already_configured": "Ce composant est déjà configuré"
+    }
+  },
+  "options": {
+    "step": {
+      "menu": {
+        "title": "Options Soleil sur Fenêtre",
+        "description": "Choisissez ce que vous souhaitez modifier",
+        "data": {
+          "menu_option": "Option de menu"
+        }
+      },
+      "edit_horizon": {
+        "title": "Modifier le profil d'horizon",
+        "description": "Modifiez le profil d'horizon global au format JSON où les clés sont les azimuts (0-360°) et les valeurs sont les élévations (-90° à 90°).\n\nProfil actuel:\n{current_points}",
+        "data": {
+          "action": "Action",
+          "horizon_profile_json": "Profil d'horizon (JSON)"
+        }
+      },
+      "edit_windows": {
+        "title": "Gérer les fenêtres",
+        "description": "Ajoutez, modifiez ou supprimez des fenêtres.\n\nFenêtres actuelles:\n{current_windows}",
+        "data": {
+          "action": "Action",
+          "name": "Nom de la fenêtre",
+          "start_azimuth": "Azimut de début (degrés)",
+          "end_azimuth": "Azimut de fin (degrés)",
+          "max_elevation": "Élévation maximale (degrés)",
+          "delete_window": "Fenêtre à supprimer"
+        }
+      }
+    },
+    "error": {
+      "minimum_horizon_points": "Vous devez définir au moins 2 points pour le profil d'horizon",
+      "no_windows": "Vous devez définir au moins une fenêtre"
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "sun_on_window": {
+        "state": {
+          "on": "Soleil présent",
+          "off": "Pas de soleil"
+        },
+        "state_attributes": {
+          "sun_position": {
+            "below_horizon": "Soleil sous l'horizon",
+            "hitting_window": "Soleil tape sur la fenêtre",
+            "not_hitting_window": "Soleil ne tape pas sur la fenêtre"
+          }
+        }
+      }
+    }
+  }
+}
