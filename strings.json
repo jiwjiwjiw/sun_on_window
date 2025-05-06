@@ -1,0 +1,88 @@
+{
+  "config": {
+    "step": {
+      "horizon": {
+        "title": "Horizon Profile Configuration",
+        "description": "Define the global horizon profile in JSON format where the keys are azimuths (0–360°) and the values are elevations (–90° to 90°). Example: {\"0\": 5, \"90\": 3, \"180\": 10, \"270\": 7}. Add at least 2 points, then click validate to proceed to the next step.",
+        "data": {
+          "horizon_profile_json": "Horizon Profile (JSON)"
+        }
+      },
+      "window": {
+        "title": "Window Configuration",
+        "description": "Define the windows to monitor by specifying their name, azimuth range, and maximum elevation. Add at least one window, then check the box to proceed to the next step.",
+        "data": {
+          "name": "Window Name",
+          "start_azimuth": "Start Azimuth (degrees)",
+          "end_azimuth": "End Azimuth (degrees)",
+          "max_elevation": "Maximum Elevation (degrees)",
+          "next_step": "I have finished defining the windows"
+        }
+      }
+    },
+    "error": {
+      "minimum_horizon_points": "You must define at least 2 points for the horizon profile",
+      "no_windows": "You must define at least one window",
+      "invalid_json": "Invalid JSON format",
+      "invalid_json_format": "The JSON format must be an object (dictionary)",
+      "invalid_azimuth_range": "Azimuths must be between 0 and 360 degrees",
+      "invalid_elevation_range": "Elevations must be between –90 and 90 degrees",
+      "invalid_number_format": "Azimuths and elevations must be numbers"
+    },
+    "abort": {
+      "already_configured": "This component is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "menu": {
+        "title": "Sun on Window Options",
+        "description": "Choose what you want to modify",
+        "data": {
+          "menu_option": "Menu Option"
+        }
+      },
+      "edit_horizon": {
+        "title": "Edit Horizon Profile",
+        "description": "Edit the global horizon profile in JSON format where the keys are azimuths (0–360°) and the values are elevations (–90° to 90°).\n\nCurrent profile:\n{current_points}",
+        "data": {
+          "action": "Action",
+          "horizon_profile_json": "Horizon Profile (JSON)"
+        }
+      },
+      "edit_windows": {
+        "title": "Manage Windows",
+        "description": "Add, edit or delete windows.\n\nCurrent windows:\n{current_windows}",
+        "data": {
+          "action": "Action",
+          "name": "Window Name",
+          "start_azimuth": "Start Azimuth (degrees)",
+          "end_azimuth": "End Azimuth (degrees)",
+          "max_elevation": "Maximum Elevation (degrees)",
+          "delete_window": "Window to delete"
+        }
+      }
+    },
+    "error": {
+      "minimum_horizon_points": "You must define at least 2 points for the horizon profile",
+      "no_windows": "You must define at least one window"
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "sun_on_window": {
+        "state": {
+          "on": "Sun present",
+          "off": "No sun"
+        },
+        "state_attributes": {
+          "sun_position": {
+            "below_horizon": "Sun below horizon",
+            "hitting_window": "Sun hitting the window",
+            "not_hitting_window": "Sun not hitting the window"
+          }
+        }
+      }
+    }
+  }
+}
