@@ -1,0 +1,12 @@
+{
+  "domain": "sun_on_window",
+  "name": "Sun on Window",
+  "config_flow": true,
+  "documentation": "https://github.com/votre-nom/sun_on_window",
+  "dependencies": ["sun"],
+  "codeowners": [],
+  "requirements": [],
+  "iot_class": "calculated",
+  "version": "0.1.0",
+  "supported_platforms": ["binary_sensor", "button"]
+}
